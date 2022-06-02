@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+{% load markdown_extras %}
+{% load markdownify %}
+<title>grqphical's Portfolio - Blog</title>
+
+<div class="col-md-8 offset-md-2">
+    <br>
+    <h1>Blog Index</h1>
+    <hr>
+
+    {% for post in posts %}
+
+    <!--<h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>-->
+    <a class="btn btn-lg btn-primary" href="{% url 'blog_detail' post.pk%}" role="button">{{ post.title }}</a>
+    <br>
+
+    <small>
+
+        {{ post.created_on.date }} |&nbsp;
+
+        Categories:&nbsp;
+
+        {% for category in post.categories.all %}
+
+        <a href="{% url 'blog_category' category.name %}">
+
+            {{ category.name }}
+
+        </a>&nbsp;
+
+        {% endfor %}
+
+    </small>
+
+    <p>{{ post.body | slice:":400" | urlize }}...</p>
+
+    {% endfor %}
+
+</div>
+<style>
+    body {
+        background-color: #1d1f24;
+        color: white;
+    }
+    .btn {
+        background-color: rgb(49, 46, 88);
+        border: rgb(49, 46, 88);
+        
+    }
+    .btn:hover{
+        background-color: rgb(61, 58, 110);
+        border: rgb(61, 58, 110);
+    }
+    hr {
+        background-color: #4e5974;
+    }
+</style>
+
+{% endblock %}

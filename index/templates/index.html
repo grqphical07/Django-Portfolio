@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block page_content %}
+{% load markdown_extras %}
+{% load static %}
+<title>grqphical's Portfolio</title>
+
+<div class="jumbotron">
+    <h1 class="display-3">Welcome to my portfolio!</h1>
+
+    <p class="lead">Hi! I am grqphical a Canadian game dev/programmer. I have experience with Lua, C#/Unity, Python and, C++. This is a site I use to showcase my projects and games
+    I've made. I also keep a blog so you can be updated on my development progress.
+    </p>
+
+    <a class="btn btn-lg btn-primary" href="{% url 'project_index' %}" role="button">View My Projects</a>
+</div>
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<!-- Add font awesome icons -->
+<a href="https://github.com/grqphical07" class="fa fa-github"></a>
+<style>
+/* Style all font awesome icons */
+body {
+    background-color: #1d1f24;
+}
+.jumbotron{
+    background-color: #1d1f24;
+    color: white
+}
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 100px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Add a hover effect if you want */
+.fa:hover {
+  opacity: 0.7;
+}
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-github {
+  background: #333;
+  color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+} 
+.btn {
+        background-color: rgb(49, 46, 88);
+        border: rgb(49, 46, 88);
+        
+    }
+.btn:hover{
+    background-color: rgb(61, 58, 110);
+    border: rgb(61, 58, 110);
+  }
+</style>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_content %}
+{% load markdown_extras %}
+{% load markdownify %}
+<title>grqphical's Portfolio - Projects</title>
+<br>
+<h1>Projects</h1>
+<br>
+<div class="row">
+{% for project in projects %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            <img class="card-img-top" src="{% static project.image %}">
+            <div class="card-body">
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text">{{ project.description | urlize}}</p>
+                <a href="{% url 'project_detail' project.pk %}"
+                   class="btn btn-primary">
+                    Read More
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<style>
+    body {
+        background-color: #1d1f24;
+        color: white;
+    }
+    .card {
+        color: rgb(255, 255, 255);
+        background-color: #2b2e35;
+    }
+    .btn {
+        background-color: rgb(49, 46, 88);
+        border: rgb(49, 46, 88);
+        
+    }
+    .btn:hover{
+        background-color: rgb(61, 58, 110);
+        border: rgb(61, 58, 110);
+    }
+</style>
+{% endblock %}
